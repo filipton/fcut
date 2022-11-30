@@ -25,6 +25,9 @@ Rust version should be rewritten to use connection pooling
 I used loader.io for performance testing, 
 so the tests should be close to real-world use.
 
+And yes, as you can se I've got a lot of invalid redirects, but it's because of redirecting to localhost. 
+Test URL: https://fcut.filipton.space/cmujl06s
+
 ### PHP
 ![PHP](https://github.com/filipton/fcut/blob/main/tests/php.png?raw=true)
 
