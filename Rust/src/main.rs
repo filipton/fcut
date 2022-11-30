@@ -1,6 +1,7 @@
 use rand::Rng;
 use rocket::response::content::{self, RawHtml};
 use rocket::{form::Form, fs::FileServer, response::Redirect};
+use std::env;
 
 #[macro_use]
 extern crate rocket;
@@ -8,7 +9,6 @@ extern crate rocket;
 const CHARSET: &[u8] = b"1234567890\
                         abcdefghijklmnopqrstuvwxyz";
 const PASSWORD_LEN: usize = 8;
-const REDIS_STRING: &str = "redis://:ReallyFcut123+@34.116.201.191/";
 
 #[derive(FromForm)]
 struct ShortUrl {
@@ -17,7 +17,7 @@ struct ShortUrl {
 
 #[get("/<id>")]
 async fn shorten_redirect(id: &str) -> Redirect {
-    let mut con = redis::Client::open(REDIS_STRING)
+    let mut con = redis::Client::open(env::var("REDIS_STRING").unwrap())
         .expect("Invalid connection URL")
         .get_connection()
         .expect("Failed to connect");
@@ -39,7 +39,7 @@ async fn shorten_post(form: Form<ShortUrl>) -> content::RawHtml<String> {
         })
         .collect();
 
-    let mut con = redis::Client::open(REDIS_STRING)
+    let mut con = redis::Client::open(env::var("REDIS_STRING").unwrap())
         .expect("Invalid connection URL")
         .get_connection()
         .expect("Failed to connect");

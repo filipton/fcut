@@ -5,8 +5,8 @@ using StackExchange.Redis;
 ConnectionMultiplexer multiplexer = await ConnectionMultiplexer.ConnectAsync(
     new ConfigurationOptions()
     {
-        EndPoints = {"34.116.201.191:6379"},
-        Password = "ReallyFcut123+"
+        EndPoints = {Environment.GetEnvironmentVariable("REDIS_ENDPOINT") ?? "localhost:6379"},
+        Password = Environment.GetEnvironmentVariable("REDIS_PASSWORD") 
     }
 );
 
