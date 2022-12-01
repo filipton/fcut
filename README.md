@@ -39,6 +39,9 @@ I used loader.io for performance testing,
 so the tests should be close to real-world use.
 (RUST AND C# ARE TESTED WHILE RUNNING IN DOCKER)
 
+And yes, as you can se I've got a lot of invalid redirects, but it's because of redirecting to localhost. 
+Test URL: https://fcut.filipton.space/cmujl06s
+
 ### PHP
 ![PHP](https://github.com/filipton/fcut/blob/main/tests/php.png?raw=true)
 
