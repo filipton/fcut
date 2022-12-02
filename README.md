@@ -6,7 +6,7 @@ It's using redis as datastore.
 Rust version should be rewritten to use connection pooling 
 (so tests might not be conclusive!)
 
-## Currently winner is.... GO
+## Currently the winner is.... GO
 When i saw huge performance difference between go and dotnet i started searching for cause.
 After some testing i found out that docker reduce total throughput of app. 
 (In next commit i'm just going to test performance without docker)
